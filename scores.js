@@ -8,7 +8,7 @@ function loadScores() {
     if (scores.length) {
         for (const [i, score] of scores.entries()) {
             const positionTdEl = document.createElement('td');
-            const nameTdEl = documnet.createElement('td');
+            const nameTdEl = document.createElement('td');
             const scoreTdEl = document.createElement('td');
             const dateTdEl = document.createElement('td');
 
