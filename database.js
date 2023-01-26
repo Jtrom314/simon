@@ -2,7 +2,7 @@ const { MongoClient } = require('mongodb');
 
 const userName = process.env.MONGOUSER;
 const password = process.env.MONGOPASSWORD;
-const hostname = porcess.env.MONGOHOSTNAME;
+const hostname = process.env.MONGOHOSTNAME;
 
 if (!userName) {
     throw Error('Database not configured. Set environment variables');
@@ -14,6 +14,10 @@ const client = new MongoClient(url);
 const scoreCollection = client.db('simon').collection('score');
 
 function addScore(score) {
+    scoreCollection.insertOne(score);
+}
+
+function getHighScores(score) {
     const query = {};
     const options = {
         sort: { score: -1},
