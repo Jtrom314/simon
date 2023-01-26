@@ -1,8 +1,4 @@
 function displayPicture() {
-    const random = Math.floor(Math.random() * 1000);
-    fetch(`https://picsum.photos/v2/list?page=${random}&limit=1`)
-      .then((response) => response.json())
-      .then((data) => {
         const containerEl = document.querySelector('#picture');
   
         const width = containerEl.offsetWidth;
@@ -12,13 +8,9 @@ function displayPicture() {
         const imgEl = document.createElement('img');
         imgEl.setAttribute('src', imgUrl);
         containerEl.appendChild(imgEl);
-      });
   }
   
   function displayQuote(data) {
-    fetch('https://api.quotable.io/random')
-      .then((response) => response.json())
-      .then((data) => {
         const containerEl = document.querySelector('#quote');
   
         const quoteEl = document.createElement('p');
@@ -31,9 +23,20 @@ function displayPicture() {
   
         containerEl.appendChild(quoteEl);
         containerEl.appendChild(authorEl);
+  }
+
+  function callService(url, displayCallback) {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        displayCallback(data);
       });
   }
   
-  displayPicture();
-  displayQuote();
+const random = Math.floor(Math.random() * 1000);
+callService(
+  `https://picsum.photos/v2/list?page=${random}&limit=1`,
+  displayPicture
+);
+callService("https://api.quoteable.io/random", displayQuote);
   
