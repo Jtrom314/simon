@@ -8,16 +8,18 @@ if (!userName) {
     throw Error('Database not configured. Set environment variables');
 }
 
-const url = `mongodb+srv://${userName}:${password}@${hostname}`;
 
-const client = new MongoClient(url);
+const url = `mongodb+srv://${userName}:${password}@${hostname}.yrwizyx.mongodb.net/bnb`;
+
+const client = new MongoClient(url, {useUnifiedTopology: true });
 const scoreCollection = client.db('simon').collection('score');
 
-function addScore(score) {
+ function addScore(score) {
+    console.log("IN ADD SCORE");
     scoreCollection.insertOne(score);
 }
 
-function getHighScores(score) {
+ function getHighScores(score) {
     const query = {};
     const options = {
         sort: { score: -1},
