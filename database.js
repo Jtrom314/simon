@@ -9,7 +9,8 @@ if (!userName) {
 }
 
 
-const url = `mongodb+srv://${userName}:${password}@${hostname}.yrwizyx.mongodb.net/bnb`;
+const url = `mongodb+srv://${userName}:${password}@${hostname}`;
+console.log("URL:  " + url);
 
 const client = new MongoClient(url, {useUnifiedTopology: true });
 const scoreCollection = client.db('simon').collection('score');

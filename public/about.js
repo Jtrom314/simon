@@ -1,4 +1,6 @@
-function displayPicture() {
+function displayPicture(data) {
+        console.log("IN DISPLAY PICTURE");
+        console.log(data);
         const containerEl = document.querySelector('#picture');
   
         const width = containerEl.offsetWidth;
@@ -11,6 +13,8 @@ function displayPicture() {
   }
   
   function displayQuote(data) {
+        console.log("In display quote");
+        console.log(data);
         const containerEl = document.querySelector('#quote');
   
         const quoteEl = document.createElement('p');
@@ -34,9 +38,6 @@ function displayPicture() {
   }
   
 const random = Math.floor(Math.random() * 1000);
-callService(
-  `https://picsum.photos/v2/list?page=${random}&limit=1`,
-  displayPicture
-);
-callService("https://api.quoteable.io/random", displayQuote);
+callService(`https://picsum.photos/v2/list?page=${random}&limit=1`, displayPicture);
+callService("https://api.quotable.io/random", displayQuote);
   
