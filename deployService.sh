@@ -40,6 +40,10 @@ ssh -i $key ubuntu@$hostname << ENDSSH
 cd services/${service}
 npm install
 npm install mongodb
+npm install express
+npm install cookie-parser
+npm install bcrypt
+npm install uuid
 pm2 restart ${service}
 ENDSSH
 
