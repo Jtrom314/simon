@@ -23,26 +23,40 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="play.html">Play</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="scores.html">Scores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
         </menu>
       </nav>
     </header>
 
     <main class="container-fluid bg-secondary text-center">
       <div>
-        <h1>Welcome</h1>
+        <h1>Welcome to Simon</h1>
         <p>Login to play</p>
-        <div>
-          <input type="text" id="name" placeholder="Your name here" />
-          <button class="btn btn-primary" onclick="login()">Login</button>
+        <div id="loginControls" style="display: none;">
+          <div class="input-group mb-3">
+            <span class="input-group-text">@</span>
+            <input class="form-control" type="text" id="userName" placeholder="you@email.com"/>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">🔒</span>
+            <input class="form-control" type="password" id="userPassword" placeholder="password"/>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="loginUser()">Login</button>
+          <button type="button" class="btn btn-primary" onclick="createUser()">Create</button>
+          </div>
+          <div id="playControls" style="display: none;">
+            <div id="playerName"></div>
+            <button type="button" class="btn btn-primary" onclick="play()">Play</button>
+            <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
+          </div>  
+      </div>
+      <div class="modal fade" id="msgModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content text-dark">
+            <div class="modal-body">error message here</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
