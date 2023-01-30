@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simon</title>
 
-    <script src="login.js"></script>
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="login.css" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -30,31 +30,58 @@
     <main class="container-fluid bg-secondary text-center">
       <div>
         <h1>Welcome to Simon</h1>
-        <p>Login to play</p>
-        <div id="loginControls" style="display: none;">
+        <!-- Displayed when needing authentication -->
+        <div id="loginControls" style="display: none">
           <div class="input-group mb-3">
             <span class="input-group-text">@</span>
-            <input class="form-control" type="text" id="userName" placeholder="you@email.com"/>
+            <input
+              class="form-control"
+              type="text"
+              id="userName"
+              placeholder="your@email.com"
+            />
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">🔒</span>
-            <input class="form-control" type="password" id="userPassword" placeholder="password"/>
+            <input
+              class="form-control"
+              type="password"
+              id="userPassword"
+              placeholder="password"
+            />
           </div>
-          <button type="button" class="btn btn-primary" onclick="loginUser()">Login</button>
-          <button type="button" class="btn btn-primary" onclick="createUser()">Create</button>
-          </div>
-          <div id="playControls" style="display: none;">
-            <div id="playerName"></div>
-            <button type="button" class="btn btn-primary" onclick="play()">Play</button>
-            <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
-          </div>  
+          <button type="button" class="btn btn-primary" onclick="loginUser()">
+            Login
+          </button>
+          <button type="button" class="btn btn-primary" onclick="createUser()">
+            Create
+          </button>
+        </div>
+        <!-- Displayed when ready to play -->
+        <div id="playControls" style="display: none">
+          <div id="playerName"></div>
+          <button type="button" class="btn btn-primary" onclick="play()">
+            Play
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="logout()">
+            Logout
+          </button>
+        </div>
       </div>
+
+      <!-- Error dialog -->
       <div class="modal fade" id="msgModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content text-dark">
             <div class="modal-body">error message here</div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
@@ -66,7 +93,7 @@
         <span class="text-reset">Author Name(s)</span>
         <a
           class="text-reset"
-          href="https://github.com/webprogramming260/simon-service"
+          href="https://github.com/webprogramming260/simon-websocket"
           >Source</a
         >
       </div>

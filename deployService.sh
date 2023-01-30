@@ -44,6 +44,7 @@ npm install express
 npm install cookie-parser
 npm install bcrypt
 npm install uuid
+npm install ws
 pm2 restart ${service}
 ENDSSH
 
